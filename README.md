@@ -39,6 +39,8 @@ Contenido de la aplicación:
    b. Se hizo integración de PWA para que la aplicación se pueda instalar en distintos dispositivos como android iphone y desktop.
 
    c. Se hizo uso de nextjs para el desarrollo de un SSR
+   
+   d. Se desarrolló con typescript para que se escriba un lenguaje más robusto y fácil de mantener.
 
 Ejemplo de la instalación de la PWA
 ![image](https://user-images.githubusercontent.com/6374407/124040902-d16f6f00-d9d3-11eb-9b9a-b512dccebadb.png)
