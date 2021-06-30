@@ -15,7 +15,6 @@ const ApiDate = () => {
 		register,
 		handleSubmit,
 		errors,
-		watch,
 		formState: { isDirty, isValid },
 	} = useForm({ mode: 'onChange' });
 	const { addToast } = useToasts();
@@ -41,7 +40,10 @@ const ApiDate = () => {
 		try {
 			const response = await formatTime(json);
 			const res = await response.json();
+
 			if (res.error) {
+				setTime('');
+				setZoneTime('');
 				addToast(res.error, { appearance: 'error' });
 			} else {
 				setTime(res.response.time);
@@ -92,7 +94,7 @@ const ApiDate = () => {
 					decoration="fill"
 					size="full"
 					type="submit"
-					disabled={!!isLoading}
+					disabled={!isDirty || !isValid || !!isLoading}
 				/>
 			</form>
 		</LayoutDashboard>
