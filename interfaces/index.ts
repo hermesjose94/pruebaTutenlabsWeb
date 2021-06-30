@@ -1,9 +1,10 @@
 export enum Images {
 	avatar = '/img/png/avatar.png',
 	circuit = '/img/auth/circuit.svg',
+	logo = '/img/png/logo.png',
 }
 
-export type ImagesType = Images.avatar | Images.circuit;
+export type ImagesType = Images.avatar | Images.circuit | Images.logo;
 
 export type OptionType = {
 	text: string;
@@ -40,4 +41,11 @@ export type Book = {
 export type ApiDate = {
 	time: string;
 	timezone: string;
+};
+
+export type OptionsModalPwa = {
+	title: string;
+	logo: ImagesType;
+	feactures: React.ReactNode;
+	description: string;
 };

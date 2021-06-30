@@ -3,7 +3,9 @@ module.exports = {
 	purge: [
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
-		'./hooks/modal/modal.tsx',
+		'./hooks/use-modal.tsx',
+		'./hooks/pwa-install/InstallDialog.tsx',
+		'./hooks/pwa-install/InstallDialogAction.tsx',
 	],
 	darkMode: false,
 	theme: {

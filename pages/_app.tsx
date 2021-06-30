@@ -5,6 +5,8 @@ import { ToastProvider } from 'react-toast-notifications';
 import { Provider } from 'next-auth/client';
 import { ThemeContext, ThemeType } from 'context';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { PwaInstallButton } from 'components/pwa-install-button';
+import ReactPWAInstallProvider from 'hooks/pwa-install';
 import 'styles/global-tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -19,17 +21,22 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 		<Provider session={pageProps.session}>
 			<QueryClientProvider client={queryClientRef.current}>
 				<ToastProvider autoDismiss placement="bottom-center">
-					<ThemeContext.Provider value={{ theme, setTheme }}>
-						<div
-							className={clsx(
-								'font-montserrat min-h-screen text-gray-800',
-								'transition-colors duration-1000',
-								theme
-							)}
-						>
-							<Component {...pageProps} />
-						</div>
-					</ThemeContext.Provider>
+					<ReactPWAInstallProvider
+						enableLogging={process.env.NODE_ENV !== 'production'}
+					>
+						<ThemeContext.Provider value={{ theme, setTheme }}>
+							<div
+								className={clsx(
+									'font-montserrat min-h-screen text-gray-800',
+									'transition-colors duration-1000',
+									theme
+								)}
+							>
+								<Component {...pageProps} />
+								<PwaInstallButton />
+							</div>
+						</ThemeContext.Provider>
+					</ReactPWAInstallProvider>
 				</ToastProvider>
 			</QueryClientProvider>
 		</Provider>
