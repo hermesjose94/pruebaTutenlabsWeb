@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { Icon } from 'components/icon';
-import { IconsType } from 'interfaces';
 import Link from 'next/link';
 import * as React from 'react';
 import { Typography } from '../typography';
@@ -13,7 +12,7 @@ export interface ButtonProps {
 	href?: string;
 	decoration?: 'fill' | 'line-white' | 'line-primary';
 	social?: 'facebook' | 'google';
-	icon?: IconsType;
+	icon?: any;
 	className?: string;
 	withBorder?: boolean;
 }
@@ -78,7 +77,8 @@ export const Button: React.FC<
 					},
 					//disabled
 					{
-						'disabled:bg-primary disabled:text-white disabled:opacity-70': !social,
+						'disabled:bg-primary disabled:text-white disabled:opacity-70':
+							!social,
 					},
 					//facebook
 					{ 'text-facebook border-facebook': social === 'facebook' },
@@ -94,7 +94,8 @@ export const Button: React.FC<
 					},
 					//disable social
 					{
-						'disabled:bg-gray-200 disabled:border-gray-200 disabled:text-gray-900 disabled:opacity-50': social,
+						'disabled:bg-gray-200 disabled:border-gray-200 disabled:text-gray-900 disabled:opacity-50':
+							social,
 					},
 					//global
 					'group flex items-center justify-center px-8 py-3 border rounded-lg outline-none transition-colors duration-300 transform',
